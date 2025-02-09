@@ -1,0 +1,3 @@
+/home/pi/gtk/build/CMakeFiles/hello.dir
+/home/pi/gtk/build/CMakeFiles/edit_cache.dir
+/home/pi/gtk/build/CMakeFiles/rebuild_cache.dir

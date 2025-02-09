@@ -1,4 +1,7 @@
 #include <gtk/gtk.h>
+#include <gpiod.h>
+
+int gpio ();
 
 static void
 print_hello (GtkWidget *widget,
@@ -34,6 +37,8 @@ int
 main (int    argc,
       char **argv)
 {
+  gpio();
+
   GtkApplication *app;
   int status;
 
@@ -43,4 +48,45 @@ main (int    argc,
   g_object_unref (app);
 
   return status;
+}
+
+int gpio ()
+{
+    const char *chipname = "gpiochip0";
+    unsigned int line_num = 27;  // GPIO pin number
+    int val;
+
+    // Open GPIO chip
+    struct gpiod_chip *chip = gpiod_chip_open_by_name(chipname);
+    if (!chip) {
+        perror("gpiod_chip_open_by_name");
+        return 1;
+    }
+
+    // Get line
+    struct gpiod_line *line = gpiod_chip_get_line(chip, line_num);
+    if (!line) {
+        perror("gpiod_chip_get_line");
+        gpiod_chip_close(chip);
+        return 1;
+    }
+
+    // Request line as output
+    if (gpiod_line_request_input(line, "example") < 0) {
+        perror("gpiod_line_request_input");
+        gpiod_chip_close(chip);
+        return 1;
+    }
+
+    if ((val=gpiod_line_get_value(line)) < 0) {
+            perror("gpiod_line_get_value");
+            gpiod_line_release(line);
+            gpiod_chip_close(chip);
+            return 1;
+        }
+    printf("Value of line %u is %d\n", line_num, val);
+    
+    // Release line and close chip
+    gpiod_line_release(line);
+    gpiod_chip_close(chip);
 }
