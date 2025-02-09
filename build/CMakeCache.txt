@@ -208,6 +208,9 @@ hello-world_IS_TOP_LEVEL:STATIC=ON
 hello-world_SOURCE_DIR:STATIC=/home/pi/gtk
 
 //Path to a library.
+pkgcfg_lib_GPIOD_gpiod:FILEPATH=/usr/lib/aarch64-linux-gnu/libgpiod.so
+
+//Path to a library.
 pkgcfg_lib_GTK4_cairo:FILEPATH=/usr/lib/aarch64-linux-gnu/libcairo.so
 
 //Path to a library.
@@ -374,6 +377,41 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v1.8.1()]
+GPIOD_CFLAGS:INTERNAL=
+GPIOD_CFLAGS_I:INTERNAL=
+GPIOD_CFLAGS_OTHER:INTERNAL=
+GPIOD_FOUND:INTERNAL=1
+GPIOD_INCLUDEDIR:INTERNAL=/usr/include
+GPIOD_INCLUDE_DIRS:INTERNAL=
+GPIOD_LDFLAGS:INTERNAL=-L/usr/lib/aarch64-linux-gnu;-lgpiod
+GPIOD_LDFLAGS_OTHER:INTERNAL=
+GPIOD_LIBDIR:INTERNAL=/usr/lib/aarch64-linux-gnu
+GPIOD_LIBRARIES:INTERNAL=gpiod
+GPIOD_LIBRARY_DIRS:INTERNAL=/usr/lib/aarch64-linux-gnu
+GPIOD_LIBS:INTERNAL=
+GPIOD_LIBS_L:INTERNAL=
+GPIOD_LIBS_OTHER:INTERNAL=
+GPIOD_LIBS_PATHS:INTERNAL=
+GPIOD_MODULE_NAME:INTERNAL=libgpiod
+GPIOD_PREFIX:INTERNAL=/usr
+GPIOD_STATIC_CFLAGS:INTERNAL=
+GPIOD_STATIC_CFLAGS_I:INTERNAL=
+GPIOD_STATIC_CFLAGS_OTHER:INTERNAL=
+GPIOD_STATIC_INCLUDE_DIRS:INTERNAL=
+GPIOD_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/aarch64-linux-gnu;-lgpiod
+GPIOD_STATIC_LDFLAGS_OTHER:INTERNAL=
+GPIOD_STATIC_LIBDIR:INTERNAL=
+GPIOD_STATIC_LIBRARIES:INTERNAL=gpiod
+GPIOD_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/aarch64-linux-gnu
+GPIOD_STATIC_LIBS:INTERNAL=
+GPIOD_STATIC_LIBS_L:INTERNAL=
+GPIOD_STATIC_LIBS_OTHER:INTERNAL=
+GPIOD_STATIC_LIBS_PATHS:INTERNAL=
+GPIOD_VERSION:INTERNAL=1.6.3
+GPIOD_libgpiod_INCLUDEDIR:INTERNAL=
+GPIOD_libgpiod_LIBDIR:INTERNAL=
+GPIOD_libgpiod_PREFIX:INTERNAL=
+GPIOD_libgpiod_VERSION:INTERNAL=
 GTK4_CFLAGS:INTERNAL=-I/usr/include/gtk-4.0;-I/usr/include/pango-1.0;-I/usr/include/glib-2.0;-I/usr/lib/aarch64-linux-gnu/glib-2.0/include;-I/usr/include/harfbuzz;-I/usr/include/freetype2;-I/usr/include/libpng16;-I/usr/include/libmount;-I/usr/include/blkid;-I/usr/include/fribidi;-I/usr/include/cairo;-I/usr/include/pixman-1;-I/usr/include/gdk-pixbuf-2.0;-I/usr/include/aarch64-linux-gnu;-I/usr/include/graphene-1.0;-I/usr/lib/aarch64-linux-gnu/graphene-1.0/include;-pthread
 GTK4_CFLAGS_I:INTERNAL=
 GTK4_CFLAGS_OTHER:INTERNAL=-pthread
@@ -415,8 +453,12 @@ PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
+__pkg_config_arguments_GPIOD:INTERNAL=REQUIRED;libgpiod
 __pkg_config_arguments_GTK4:INTERNAL=REQUIRED;gtk4
+__pkg_config_checked_GPIOD:INTERNAL=1
 __pkg_config_checked_GTK4:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GPIOD_gpiod
+pkgcfg_lib_GPIOD_gpiod-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_GTK4_cairo
 pkgcfg_lib_GTK4_cairo-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_GTK4_cairo-gobject
